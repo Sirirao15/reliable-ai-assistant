@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
 
+<title>Reliable AI Assistant</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Reliable AI Assistant</h1>
+
+<div class="chat-box">
+
+<form method="POST">
+
+<input type="text" name="question" placeholder="Ask a question..." required>
+
+<button type="submit">Ask</button>
+
+</form>
+
+</div>
+
+
+{% if answer %}
+
+<div class="answer-box">
+
+<h3>Answer</h3>
+
+<p>{{answer}}</p>
+
+<p><b>Confidence Score:</b> {{confidence}}%</p>
+
+<div class="feedback">
+
+<form method="POST" action="/feedback">
+
+<button name="rating" value="happy">😊 Happy</button>
+
+<button name="rating" value="confused">😕 Confused</button>
+
+<button name="rating" value="wrong">❌ Wrong</button>
+
+</form>
+
+</div>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
