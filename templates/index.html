@@ -2,170 +2,75 @@
 <html>
 <head>
 <title>VerifyAI</title>
-
-<style>
-
-body{
-font-family: Arial, sans-serif;
-background:#0f172a;
-color:white;
-text-align:center;
-margin:0;
-}
-
-.header{
-padding:30px;
-}
-
-.header h1{
-font-size:40px;
-margin:0;
-}
-
-.header p{
-color:#94a3b8;
-}
-
-.container{
-width:60%;
-margin:auto;
-background:#1e293b;
-padding:30px;
-border-radius:10px;
-}
-
-input{
-width:70%;
-padding:12px;
-border-radius:6px;
-border:none;
-}
-
-button{
-padding:12px 20px;
-background:#10b981;
-border:none;
-color:white;
-border-radius:6px;
-cursor:pointer;
-}
-
-button:hover{
-background:#059669;
-}
-
-.answer-box{
-margin-top:20px;
-background:#111827;
-padding:20px;
-border-radius:8px;
-text-align:left;
-}
-
-.confidence{
-margin-top:15px;
-}
-
-.progress{
-width:100%;
-background:#374151;
-border-radius:5px;
-overflow:hidden;
-}
-
-.progress-bar{
-height:20px;
-background:#22c55e;
-width:{{confidence}}%;
-}
-
-.sources{
-margin-top:25px;
-text-align:left;
-}
-
-.footer{
-margin-top:40px;
-padding:20px;
-color:#94a3b8;
-}
-
-.feedback button{
-margin:5px;
-background:#334155;
-}
-
-</style>
-
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<div class="header">
-<h1>VerifyAI</h1>
-<p>AI-Powered Verification</p>
-<p>Reliable answers, verified.</p>
-<p>Ask any question. We'll cross-reference multiple trusted sources.</p>
+<header>
+    <div class="logo">
+        ✔ VerifyAI
+    </div>
+    <div class="tag">
+        AI-POWERED VERIFICATION
+    </div>
+</header>
+
+<div class="hero">
+
+    <h1>Reliable answers, <span>verified.</span></h1>
+
+    <p>
+        Ask any question. We'll cross-reference multiple trusted sources
+        to provide a factual, verified response.
+    </p>
+
 </div>
 
-<div class="container">
+<div class="search-box">
 
 <form method="POST">
 
-<input type="text" name="question" placeholder="Ask any question..." required>
+<input type="text" name="question" placeholder="Ask anything..." required>
 
-<button type="submit">Ask</button>
+<button type="submit">🔍</button>
 
 </form>
 
+</div>
+
+
 {% if answer %}
 
-<div class="answer-box">
+<div class="result-card">
 
-<h3>Verified Answer</h3>
+<div class="result-header">
 
-<p>{{answer}}</p>
+<div class="verified">
+✔ VERIFIED ANSWER
+</div>
 
 <div class="confidence">
-
-<h4>Confidence</h4>
-
-<div class="progress">
-<div class="progress-bar"></div>
-</div>
-
-<p>{{confidence}}%</p>
-
+Confidence {{confidence}}%
 </div>
 
 </div>
 
-<div class="feedback">
+<p class="answer-text">
+{{answer}}
+</p>
 
-<h4>Was this answer helpful?</h4>
-
-<form action="/feedback" method="POST">
+<form method="POST" action="/feedback" class="feedback">
 
 <button name="rating" value="happy">😊 Helpful</button>
-
-<button name="rating" value="confused">😕 Confused</button>
-
-<button name="rating" value="wrong">❌ Wrong</button>
+<button name="rating" value="confused">😕 Confusing</button>
+<button name="rating" value="wrong">❌ Incorrect</button>
 
 </form>
 
 </div>
 
 {% endif %}
-
-</div>
-
-<div class="footer">
-
-<p>© 2026 VerifyAI</p>
-<p>Factual Integrity First</p>
-
-</div>
 
 </body>
 </html>
