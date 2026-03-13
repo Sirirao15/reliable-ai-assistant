@@ -7,50 +7,64 @@
 
 <body>
 
-<div class="container">
-
+<header>
     <div class="logo">
-        ✔ VerifyAI
-        <span>AI-POWERED VERIFICATION</span>
+        🛡️ <span>VerifyAI</span>
     </div>
 
-    <h1>ECHO AI</h1>
+    <div class="tagline">
+        AI-Powered Verification
+    </div>
+</header>
 
-    <p class="subtitle">
+
+<section class="hero">
+
+    <h1>ECHO <i>AI</i></i></h1>
+
+    <p>
         Ask any question. We'll cross-reference multiple trusted sources
         to provide a factual, verified response.
     </p>
 
-    <form method="POST" class="search-box">
-        <input type="text" name="question" placeholder="Ask anything..." required>
-        <button type="submit">🔍</button>
-    </form>
+</section>
 
 
-    {% if answer %}
-    <div class="result">
+<div class="search-box">
 
-        <h2>Answer</h2>
-        <p>{{answer}}</p>
+<form method="POST">
 
-        <div class="confidence">
-            Confidence Score: <b>{{confidence}}%</b>
-        </div>
+<input type="text" name="question" placeholder="Ask a question..." required>
 
-        <div class="feedback">
+<button type="submit">🔍</button>
 
-            <form method="POST" action="/feedback">
-                <button name="rating" value="happy">😊 Helpful</button>
-                <button name="rating" value="confused">😐 Not Clear</button>
-                <button name="rating" value="wrong">❌ Incorrect</button>
-            </form>
-
-        </div>
-
-    </div>
-    {% endif %}
+</form>
 
 </div>
+
+
+
+{% if answer %}
+
+<div class="result-card">
+
+<div class="verified-title">
+✔ VERIFIED ANSWER
+</div>
+
+<div class="confidence">
+Confidence: {{confidence}}%
+</div>
+
+<p class="answer-text">
+{{answer}}
+</p>
+
+</div>
+
+{% endif %}
+
+
 
 </body>
 </html>
