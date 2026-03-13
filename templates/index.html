@@ -1,76 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>VerifyAI</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>VerifyAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<header>
+<div class="container">
+
     <div class="logo">
         ✔ VerifyAI
+        <span>AI-POWERED VERIFICATION</span>
     </div>
-    <div class="tag">
-        AI-POWERED VERIFICATION
-    </div>
-</header>
 
-<div class="hero">
+    <h1>Reliable answers, verified.</h1>
 
-    <h1>Reliable answers, <span>verified.</span></h1>
-
-    <p>
+    <p class="subtitle">
         Ask any question. We'll cross-reference multiple trusted sources
         to provide a factual, verified response.
     </p>
 
-</div>
-
-<div class="search-box">
-
-<form method="POST">
-
-<input type="text" name="question" placeholder="Ask anything..." required>
-
-<button type="submit">🔍</button>
-
-</form>
-
-</div>
+    <form method="POST" class="search-box">
+        <input type="text" name="question" placeholder="Ask anything..." required>
+        <button type="submit">🔍</button>
+    </form>
 
 
-{% if answer %}
+    {% if answer %}
+    <div class="result">
 
-<div class="result-card">
+        <h2>Answer</h2>
+        <p>{{answer}}</p>
 
-<div class="result-header">
+        <div class="confidence">
+            Confidence Score: <b>{{confidence}}%</b>
+        </div>
 
-<div class="verified">
-✔ VERIFIED ANSWER
-</div>
+        <div class="feedback">
 
-<div class="confidence">
-Confidence {{confidence}}%
-</div>
+            <form method="POST" action="/feedback">
+                <button name="rating" value="happy">😊 Helpful</button>
+                <button name="rating" value="confused">😐 Not Clear</button>
+                <button name="rating" value="wrong">❌ Incorrect</button>
+            </form>
 
-</div>
+        </div>
 
-<p class="answer-text">
-{{answer}}
-</p>
-
-<form method="POST" action="/feedback" class="feedback">
-
-<button name="rating" value="happy">😊 Helpful</button>
-<button name="rating" value="confused">😕 Confusing</button>
-<button name="rating" value="wrong">❌ Incorrect</button>
-
-</form>
+    </div>
+    {% endif %}
 
 </div>
-
-{% endif %}
 
 </body>
 </html>
