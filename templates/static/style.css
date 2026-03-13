@@ -2,7 +2,7 @@ body{
 font-family: Arial, Helvetica, sans-serif;
 background:#f5f6f8;
 margin:0;
-color:Blue;
+color:#333;
 }
 
 header{
@@ -14,7 +14,7 @@ padding:20px 60px;
 .logo{
 font-weight:bold;
 font-size:22px;
-color:White;
+color:#1a8f5a;
 }
 
 .tag{
@@ -38,7 +38,7 @@ font-style:italic;
 }
 
 .hero p{
-color:Gray;
+color:#666;
 margin-top:10px;
 font-size:18px;
 }
@@ -94,7 +94,7 @@ font-weight:bold;
 }
 
 .confidence{
-color:White;
+color:#888;
 }
 
 .answer-text{
