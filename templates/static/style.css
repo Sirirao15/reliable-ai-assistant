@@ -1,89 +1,118 @@
 body{
-background:#0f172a;
-font-family:Arial, Helvetica, sans-serif;
-color:white;
-margin:0;
-display:flex;
-justify-content:center;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f5f6f7;
+    margin:0;
 }
 
-.container{
-width:700px;
-margin-top:60px;
-text-align:center;
+
+/* HEADER */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background:white;
+    box-shadow:0px 1px 5px rgba(0,0,0,0.1);
 }
 
 .logo{
-font-size:28px;
-font-weight:bold;
+    font-size:20px;
+    font-weight:bold;
+    color:#1a936f;
 }
 
-.logo span{
-display:block;
-font-size:12px;
-letter-spacing:2px;
-color:#94a3b8;
-margin-top:5px;
+.tagline{
+    font-size:12px;
+    color:#888;
+    letter-spacing:2px;
 }
 
-h1{
-margin-top:20px;
+
+
+/* HERO SECTION */
+
+.hero{
+    text-align:center;
+    margin-top:60px;
 }
 
-.subtitle{
-color:#94a3b8;
-margin-bottom:30px;
+.hero h1{
+    font-size:40px;
+    font-weight:500;
 }
+
+.hero p{
+    color:#666;
+    margin-top:10px;
+}
+
+
+
+/* SEARCH BOX */
 
 .search-box{
-display:flex;
-justify-content:center;
-gap:10px;
+    display:flex;
+    justify-content:center;
+    margin-top:40px;
+}
+
+.search-box form{
+    display:flex;
+    width:60%;
 }
 
 .search-box input{
-width:70%;
-padding:12px;
-border-radius:8px;
-border:none;
-font-size:16px;
+
+    flex:1;
+    padding:18px;
+    font-size:16px;
+    border-radius:30px 0 0 30px;
+    border:1px solid #ddd;
+    outline:none;
 }
 
 .search-box button{
-padding:12px 18px;
-border:none;
-border-radius:8px;
-background:#22c55e;
-color:white;
-font-size:16px;
-cursor:pointer;
+
+    padding:18px 25px;
+    background:#1a936f;
+    color:white;
+    border:none;
+    border-radius:0 30px 30px 0;
+    cursor:pointer;
+    font-size:16px;
 }
 
-.result{
-background:#1e293b;
-margin-top:30px;
-padding:20px;
-border-radius:10px;
-text-align:left;
+
+
+/* RESULT CARD */
+
+.result-card{
+
+    width:60%;
+    margin:50px auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
-.result h2{
-margin-top:0;
+.verified-title{
+
+    color:#1a936f;
+    font-weight:bold;
+    margin-bottom:10px;
 }
 
 .confidence{
-margin-top:15px;
-font-size:16px;
+
+    float:right;
+    color:#888;
 }
 
-.feedback{
-margin-top:20px;
-}
+.answer-text{
 
-.feedback button{
-margin-right:10px;
-padding:8px 12px;
-border:none;
-border-radius:6px;
-cursor:pointer;
+    margin-top:20px;
+    line-height:1.7;
+    color:#333;
 }
