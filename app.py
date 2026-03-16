@@ -98,13 +98,13 @@ def home():
 @app.route("/feedback", methods=["POST"])
 def feedback():
 
-    rating = request.form["rating"]
+    user_feedback = request.form["feedback_text"]
 
     with open("feedback.txt", "a") as f:
-        f.write(rating + "\n")
+        f.write(user_feedback + "\n")
 
-    return "Feedback Saved!"
-    import os
+    return redirect("/")
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
