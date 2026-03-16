@@ -54,7 +54,21 @@ Confidence: {{confidence}}%
 <p class="answer-text">
 {{answer}}
 </p>
+<div class="feedback-box">
 
+<h3>Give your feedback</h3>
+
+<form method="POST" action="/feedback">
+
+<textarea name="feedback_text" placeholder="Type your feedback here..." required></textarea>
+
+<br>
+
+<button type="submit">Submit Feedback</button>
+
+</form>
+
+</div>
 </div>
 
 {% endif %}
